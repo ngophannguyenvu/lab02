@@ -12,8 +12,8 @@
             <div class="col-lg-3 col-md-6 mb-4">
                 <h5 class="text-uppercase fw-bold text-primary">Liên kết nhanh</h5>
                 <ul class="list-unstyled mb-0">
-                    <li class="mb-2"><a href="/2280603737_NgoPhanNguyenVu/Product/" class="text-dark text-decoration-none">Danh sách sản phẩm <i class="fas fa-list ms-2"></i></a></li>
-                    <li class="mb-2"><a href="/2280603737_NgoPhanNguyenVu/Product/add" class="text-dark text-decoration-none">Thêm sản phẩm <i class="fas fa-plus ms-2"></i></a></li>
+                    <li class="mb-2"><a href="/lab02/Product/" class="text-dark text-decoration-none">Danh sách sản phẩm <i class="fas fa-list ms-2"></i></a></li>
+                    <li class="mb-2"><a href="/lab02/Product/add" class="text-dark text-decoration-none">Thêm sản phẩm <i class="fas fa-plus ms-2"></i></a></li>
                 </ul>
             </div>
             <!-- Cột mạng xã hội -->

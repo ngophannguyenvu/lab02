@@ -1,155 +1,250 @@
 <?php include 'app/views/shares/header.php'; ?>
-<div class="container my-5">
-    <div class="d-flex justify-content-between align-items-center mb-4 p-3 rounded" style="background: linear-gradient(135deg, #007bff, #00d4ff);">
-        <h1 class="h2 text-white fw-bold mb-0">Danh sách sản phẩm</h1>
-        <a href="/2280603737_NgoPhanNguyenVu/Product/add" class="btn btn-success d-flex align-items-center gap-2">
-            <i class="bi bi-plus-circle"></i> Thêm sản phẩm mới
-        </a>
+
+<!-- Custom CSS cho giao diện điện thoại -->
+<style>
+.hero-section {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 60px 0;
+    margin-bottom: 40px;
+}
+
+.product-card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    overflow: hidden;
+    height: 100%;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.product-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.price-tag {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #e74c3c;
+}
+
+.category-badge {
+    background: linear-gradient(45deg, #3498db, #2980b9);
+    border: none;
+    border-radius: 20px;
+    padding: 5px 15px;
+    font-size: 0.8rem;
+}
+
+.btn-cart {
+    background: linear-gradient(45deg, #27ae60, #2ecc71);
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    transition: all 0.3s ease;
+}
+
+.btn-cart:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(46, 204, 113, 0.4);
+}
+
+.search-section {
+    background: #f8f9fa;
+    padding: 30px 0;
+    margin-bottom: 40px;
+}
+
+.product-title {
+    color: #2c3e50;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.product-description {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.action-buttons {
+    gap: 8px;
+}
+
+.stats-section {
+    background: #34495e;
+    color: white;
+    padding: 20px 0;
+    margin-top: 50px;
+}
+</style>
+
+<!-- Hero Section -->
+<div class="hero-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h1 class="display-4 fw-bold mb-3">📱 Cửa Hàng Điện Thoại</h1>
+                <p class="lead mb-4">Khám phá những chiếc điện thoại thông minh mới nhất với công nghệ tiên tiến nhất</p>
+                <a href="/lab02/Product/add" class="btn btn-light btn-lg px-4 py-2">
+                    <i class="fas fa-plus me-2"></i>Thêm sản phẩm mới
+                </a>
+            </div>
+            <div class="col-lg-4 text-center">
+                <i class="fas fa-mobile-alt" style="font-size: 8rem; opacity: 0.3;"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Search Section -->
+<div class="search-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="input-group input-group-lg">
+                    <span class="input-group-text bg-white border-end-0">
+                        <i class="fas fa-search text-muted"></i>
+                    </span>
+                    <input type="text" class="form-control border-start-0" placeholder="Tìm kiếm điện thoại..." id="searchInput">
+                    <button class="btn btn-primary px-4" type="button">
+                        <i class="fas fa-filter me-2"></i>Lọc
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Products Section -->
+<div class="container mb-5">
+    <div class="row mb-4">
+        <div class="col-12">
+            <h2 class="text-center mb-4">
+                <i class="fas fa-mobile-alt text-primary me-2"></i>
+                Sản Phẩm Nổi Bật
+            </h2>
+        </div>
     </div>
 
-    <?php if (empty($products)): ?>
-        <div class="alert alert-info text-center rounded shadow-sm" role="alert">
-            <i class="bi bi-info-circle me-2"></i> Chưa có sản phẩm nào trong danh sách.
-        </div>
-    <?php else: ?>
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-            <?php foreach ($products as $product): ?>
-                <div class="col">
-                    <div class="card h-100 shadow-sm border-0 product-card" style="border-left: 4px solid #007bff;">
-                        <div class="card-img-container">
-                            <?php if ($product->image): ?>
-                                <img src="/2280603737_NgoPhanNguyenVu/<?php echo htmlspecialchars($product->image, ENT_QUOTES, 'UTF-8'); ?>" 
-                                     class="card-img-top" 
-                                     alt="<?php echo htmlspecialchars($product->name, ENT_QUOTES, 'UTF-8'); ?>" 
-                                     style="height: 250px; object-fit: cover; width: 100%; border-top-left-radius: 10px; border-top-right-radius: 10px;">
-                            <?php else: ?>
-                                <div class="card-img-top bg-light d-flex align-items-center justify-content-center" style="height: 250px; width: 100%; border-top-left-radius: 10px; border-top-right-radius: 10px;">
-                                    <span class="text-muted">No Image</span>
-                                </div>
-                            <?php endif; ?>
+    <div class="row g-4">
+        <?php foreach ($products as $product): ?>
+        <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="card product-card h-100">
+                <!-- Product Image -->
+                <div class="position-relative">
+                    <?php if ($product->image): ?>
+                        <img src="/lab02/<?php echo $product->image; ?>" 
+                             alt="<?php echo htmlspecialchars($product->name, ENT_QUOTES, 'UTF-8'); ?>" 
+                             class="product-image">
+                    <?php else: ?>
+                        <div class="product-image bg-light d-flex align-items-center justify-content-center">
+                            <i class="fas fa-mobile-alt text-muted" style="font-size: 3rem;"></i>
                         </div>
-                        <div class="card-body p-3">
-                            <h5 class="card-title mb-2 fw-bold">
-                                <a href="/2280603737_NgoPhanNguyenVu/Product/show/<?php echo $product->id; ?>" 
-                                   class="text-decoration-none text-primary">
-                                    <i class="bi bi-phone me-2 text-primary"></i>
-                                    <?php echo htmlspecialchars($product->name, ENT_QUOTES, 'UTF-8'); ?>
-                                </a>
-                            </h5>
-                            <p class="card-text text-muted mb-2" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; height: 60px;">
-                                <?php echo htmlspecialchars($product->description, ENT_QUOTES, 'UTF-8'); ?>
-                            </p>
-                            <p class="card-text fw-bold text-danger mb-2">
-                                💰 <?php echo number_format($product->price, 0, ',', '.'); ?> VND
-                            </p>
-                            <p class="card-text mb-0">
-                                <strong>Danh mục:</strong> 
-                                <span class="badge bg-info text-white">
-                                    <?php echo htmlspecialchars($product->category_name, ENT_QUOTES, 'UTF-8'); ?>
-                                </span>
-                            </p>
-                        </div>
-                        <div class="card-footer bg-transparent border-0 p-3 d-flex gap-2 justify-content-end">
-                            <a href="/2280603737_NgoPhanNguyenVu/Product/show/<?php echo $product->id; ?>" 
-                               class="btn btn-primary btn-sm d-flex align-items-center gap-1">
-                                <i class="bi bi-eye"></i> Xem chi tiết
+                    <?php endif; ?>
+                    
+                    <!-- Category Badge -->
+                    <span class="badge category-badge position-absolute top-0 start-0 m-3">
+                        <?php echo htmlspecialchars($product->category_name, ENT_QUOTES, 'UTF-8'); ?>
+                    </span>
+                </div>
+
+                <div class="card-body d-flex flex-column">
+                    <!-- Product Title -->
+                    <h5 class="product-title">
+                        <a href="/lab02/Product/show/<?php echo $product->id; ?>" 
+                           class="text-decoration-none text-dark">
+                            <?php echo htmlspecialchars($product->name, ENT_QUOTES, 'UTF-8'); ?>
+                        </a>
+                    </h5>
+
+                    <!-- Product Description -->
+                    <p class="product-description flex-grow-1">
+                        <?php echo htmlspecialchars($product->description, ENT_QUOTES, 'UTF-8'); ?>
+                    </p>
+
+                    <!-- Price -->
+                    <div class="price-tag mb-3">
+                        <?php echo number_format($product->price, 0, ',', '.'); ?> ₫
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="d-flex flex-column action-buttons">
+                        <!-- Add to Cart Button -->
+                        <a href="/lab02/Product/addToCart/<?php echo $product->id; ?>" 
+                           class="btn btn-cart text-white mb-2">
+                            <i class="fas fa-shopping-cart me-2"></i>Thêm vào giỏ hàng
+                        </a>
+                        
+                        <!-- Edit & Delete Buttons -->
+                        <div class="d-flex gap-2">
+                            <a href="/lab02/Product/edit/<?php echo $product->id; ?>" 
+                               class="btn btn-outline-warning btn-sm flex-fill">
+                                <i class="fas fa-edit me-1"></i>Sửa
                             </a>
-                            <a href="/2280603737_NgoPhanNguyenVu/Product/edit/<?php echo $product->id; ?>" 
-                               class="btn btn-warning btn-sm d-flex align-items-center gap-1">
-                                <i class="bi bi-pencil"></i> Sửa
-                            </a>
-                            <a href="/2280603737_NgoPhanNguyenVu/Product/delete/<?php echo $product->id; ?>" 
-                               class="btn btn-danger btn-sm d-flex align-items-center gap-1" 
+                            <a href="/lab02/Product/delete/<?php echo $product->id; ?>" 
+                               class="btn btn-outline-danger btn-sm flex-fill"
                                onclick="return confirm('Bạn có chắc chắn muốn xóa sản phẩm này?');">
-                                <i class="bi bi-trash"></i> Xóa
+                                <i class="fas fa-trash me-1"></i>Xóa
                             </a>
                         </div>
                     </div>
                 </div>
-            <?php endforeach; ?>
+            </div>
         </div>
-    <?php endif; ?>
+        <?php endforeach; ?>
+    </div>
 </div>
 
+<!-- Stats Section -->
+<div class="stats-section">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-3 col-6 mb-3">
+                <h3 class="fw-bold"><?php echo count($products); ?></h3>
+                <p class="mb-0">Sản phẩm</p>
+            </div>
+            <div class="col-md-3 col-6 mb-3">
+                <h3 class="fw-bold">24/7</h3>
+                <p class="mb-0">Hỗ trợ</p>
+            </div>
+            <div class="col-md-3 col-6 mb-3">
+                <h3 class="fw-bold">100%</h3>
+                <p class="mb-0">Chính hãng</p>
+            </div>
+            <div class="col-md-3 col-6 mb-3">
+                <h3 class="fw-bold">1000+</h3>
+                <p class="mb-0">Khách hàng</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript for Search -->
+<script>
+document.getElementById('searchInput').addEventListener('keyup', function() {
+    const searchTerm = this.value.toLowerCase();
+    const productCards = document.querySelectorAll('.product-card');
+    
+    productCards.forEach(function(card) {
+        const productName = card.querySelector('.product-title').textContent.toLowerCase();
+        const productDesc = card.querySelector('.product-description').textContent.toLowerCase();
+        
+        if (productName.includes(searchTerm) || productDesc.includes(searchTerm)) {
+            card.closest('.col-lg-4').style.display = 'block';
+        } else {
+            card.closest('.col-lg-4').style.display = 'none';
+        }
+    });
+});
+</script>
+
 <?php include 'app/views/shares/footer.php'; ?>
-
-<!-- Bootstrap CSS and JS -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
-<!-- Custom CSS -->
-<style>
-body {
-    background-color: #f8f9fa;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-.card {
-    border-radius: 10px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-}
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-    background-color: #f1f8ff;
-}
-.card-img-container {
-    overflow: hidden;
-}
-.card-img-top {
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
-.card-img-top:hover {
-    transform: scale(1.05);
-}
-.card-body {
-    padding: 15px;
-}
-.card-footer {
-    padding: 10px 15px;
-}
-.btn {
-    border-radius: 8px;
-    padding: 6px 12px;
-    font-size: 0.9rem;
-    transition: all 0.3s ease;
-}
-.btn-success {
-    background: linear-gradient(135deg, #28a745, #34c759);
-    border: none;
-}
-.btn-primary {
-    background-color: #007bff;
-    border-color: #007bff;
-}
-.btn-warning {
-    background-color: #ffc107;
-    border-color: #ffc107;
-}
-.btn-danger {
-    background-color: #dc3545;
-    border-color: #dc3545;
-}
-.btn:hover {
-    filter: brightness(90%);
-}
-.text-primary {
-    color: #007bff !important;
-}
-.alert {
-    border-radius: 10px;
-    padding: 20px;
-    font-size: 1.1rem;
-}
-.alert i {
-    font-size: 1.2rem;
-}
-h5 a:hover {
-    color: #0056b3 !important;
-}
-.badge {
-    font-size: 0.9rem;
-    padding: 5px 10px;
-}
-</style>

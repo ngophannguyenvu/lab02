@@ -18,7 +18,7 @@
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
                     <?php endif; ?>
-                    <form method="POST" action="/2280603737_NgoPhanNguyenVu/Product/save" enctype="multipart/form-data" onsubmit="return validateForm();">
+                    <form method="POST" action="/lab02/Product/save" enctype="multipart/form-data" onsubmit="return validateForm();">
                         <div class="mb-3">
                             <label for="name" class="form-label fw-bold">Tên sản phẩm</label>
                             <input type="text" id="name" name="name" class="form-control rounded-3" required>
@@ -47,7 +47,7 @@
                         </div>
                         <div class="d-flex gap-2">
                             <button type="submit" class="btn btn-primary px-4 py-2">Thêm sản phẩm</button>
-                            <a href="/2280603737_NgoPhanNguyenVu/Product/list" class="btn btn-outline-secondary px-4 py-2">Quay lại danh sách sản phẩm</a>
+                            <a href="/lab02/Product/list" class="btn btn-outline-secondary px-4 py-2">Quay lại danh sách sản phẩm</a>
                         </div>
                     </form>
                 </div>

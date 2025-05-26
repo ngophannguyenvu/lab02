@@ -54,22 +54,22 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="/2280603737_NgoPhanNguyenVu/Product/">Danh sách sản phẩm <i class="fas fa-list"></i></a>
+                        <a class="nav-link" href="/lab02/Product/">Danh sách sản phẩm <i class="fas fa-list"></i></a>
                     </li>
                     <!-- <li class="nav-item">
-                        <a class="nav-link" href="/2280603737_NgoPhanNguyenVu/Product/add">Thêm sản phẩm <i class="fas fa-plus"></i></a>
+                        <a class="nav-link" href="/lab02/Product/add">Thêm sản phẩm <i class="fas fa-plus"></i></a>
                     </li> -->
                     <!-- <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Danh Mục <i class="fas fa-folder"></i>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="/2280603737_NgoPhanNguyenVu/Category/">Danh sách danh mục</a></li>
-                            <li><a class="dropdown-item" href="/2280603737_NgoPhanNguyenVu/Category/add">Thêm danh mục</a></li>
+                            <li><a class="dropdown-item" href="/lab02/Category/">Danh sách danh mục</a></li>
+                            <li><a class="dropdown-item" href="/lab02/Category/add">Thêm danh mục</a></li>
                         </ul>
                     </li> -->
                     <li class="nav-item">
-                        <a class="nav-link" href="/2280603737_NgoPhanNguyenVu/Category/">Danh sách danh mục <i class="fas fa-list"></i></a>
+                        <a class="nav-link" href="/lab02/Category/">Danh sách danh mục <i class="fas fa-list"></i></a>
                     </li>
                 </ul>
             </div>

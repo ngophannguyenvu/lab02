@@ -9,7 +9,7 @@
                 <div class="row g-4">
                     <div class="col-md-6">
                         <?php if ($product->image): ?>
-                            <img src="/2280603737_NgoPhanNguyenVu/<?php echo htmlspecialchars($product->image, ENT_QUOTES, 'UTF-8'); ?>" 
+                            <img src="/lab02/<?php echo htmlspecialchars($product->image, ENT_QUOTES, 'UTF-8'); ?>" 
                                  class="img-fluid rounded" 
                                  alt="<?php echo htmlspecialchars($product->name, ENT_QUOTES, 'UTF-8'); ?>" 
                                  style="max-height: 400px; object-fit: cover; border: 1px solid #ddd;">
@@ -32,9 +32,9 @@
                             </span>
                         </p>
                         <div class="d-flex gap-2">
-                            <a href="/2280603737_NgoPhanNguyenVu/Product/addToCart/<?php echo $product->id; ?>" 
+                            <a href="/lab02/Product/addToCart/<?php echo $product->id; ?>" 
                                class="btn btn-success px-4">➕ Thêm vào giỏ hàng</a>
-                            <a href="/2280603737_NgoPhanNguyenVu/Product/list" 
+                            <a href="/lab02/Product/list" 
                                class="btn btn-outline-secondary px-4">Quay lại danh sách</a>
                         </div>
                     </div>

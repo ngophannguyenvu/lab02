@@ -40,7 +40,7 @@ class CategoryController {
 
             $result = $this->categoryModel->createCategory($name, $description);
             if ($result) {
-                header('Location: /2280603737_NgoPhanNguyenVu/Category');
+                header('Location: /lab02/Category');
             } else {
                 echo "Đã xảy ra lỗi khi thêm danh mục.";
             }
@@ -66,7 +66,7 @@ class CategoryController {
 
             $result = $this->categoryModel->updateCategory($id, $name, $description);
             if ($result) {
-                header('Location: /2280603737_NgoPhanNguyenVu/Category');
+                header('Location: /lab02/Category');
             } else {
                 echo "Đã xảy ra lỗi khi cập nhật danh mục.";
             }
@@ -76,7 +76,7 @@ class CategoryController {
     // Xóa danh mục
     public function delete($id) {
         if ($this->categoryModel->deleteCategory($id)) {
-            header('Location: /2280603737_NgoPhanNguyenVu/Category');
+            header('Location: /lab02/Category');
         } else {
             echo "Đã xảy ra lỗi khi xóa danh mục.";
         }
