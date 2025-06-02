@@ -177,26 +177,27 @@
                     </div>
 
                     <!-- Action Buttons -->
-                    <div class="d-flex flex-column action-buttons">
-                        <!-- Add to Cart Button -->
-                        <a href="/lab02/Product/addToCart/<?php echo $product->id; ?>" 
-                           class="btn btn-cart text-white mb-2">
-                            <i class="fas fa-shopping-cart me-2"></i>Thêm vào giỏ hàng
-                        </a>
-                        
-                        <!-- Edit & Delete Buttons -->
-                        <div class="d-flex gap-2">
-                            <a href="/lab02/Product/edit/<?php echo $product->id; ?>" 
-                               class="btn btn-outline-warning btn-sm flex-fill">
-                                <i class="fas fa-edit me-1"></i>Sửa
-                            </a>
-                            <a href="/lab02/Product/delete/<?php echo $product->id; ?>" 
-                               class="btn btn-outline-danger btn-sm flex-fill"
-                               onclick="return confirm('Bạn có chắc chắn muốn xóa sản phẩm này?');">
-                                <i class="fas fa-trash me-1"></i>Xóa
-                            </a>
-                        </div>
-                    </div>
+                    <div class="mt-4">
+<div class="d-flex gap-2 flex-wrap">
+<?php if (SessionHelper::isAdmin()): ?>
+<a href="/webbanhang/Product/edit/<?php echo $product->id; ?>"
+class="btn btn-warning btn-sm w-100 fw-bold text-white rounded-pill
+transition-all hover-btn">
+<i class="fas fa-edit me-1"></i> Sửa
+</a>
+<a href="/webbanhang/Product/delete/<?php echo $product->id; ?>"
+class="btn btn-danger btn-sm w-100 fw-bold rounded-pill transition-all
+hover-btn delete-btn">
+<i class="fas fa-trash me-1"></i> Xóa
+</a>
+<?php endif; ?>
+<a href="/webbanhang/Product/addToCart/<?php echo $product->id; ?>"
+class="btn btn-primary btn-sm w-100 fw-bold rounded-pill transition-all
+hover-btn">
+<i class="fas fa-cart-plus me-1"></i> Thêm vào giỏ
+</a>
+</div>
+</div>
                 </div>
             </div>
         </div>
